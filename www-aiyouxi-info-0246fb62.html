@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>爱游戏 · 轻量游戏指南与访问说明</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f5f9fc;
+            color: #1a2a3a;
+            line-height: 1.6;
+            padding: 0 1.25rem;
+        }
+        .page-wrap {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 2rem 0 3rem;
+        }
+        /* 首页横幅（杂志式 head） */
+        .hero {
+            background: linear-gradient(145deg, #d7ecec 0%, #b4d9d9 100%);
+            border-radius: 32px 32px 48px 48px;
+            padding: 2.2rem 2rem 1.8rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 8px 20px rgba(30, 68, 68, 0.08);
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0c3d3d;
+            line-height: 1.2;
+        }
+        .hero .sub-label {
+            display: inline-block;
+            background: #1d5a5a;
+            color: #e6f3f3;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+        }
+        .hero .hero-desc {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: #1d4e4e;
+            border-left: 4px solid #1f6d6d;
+            padding-left: 1rem;
+            max-width: 90%;
+        }
+
+        /* 网格卡片系统——杂志风格 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+        .card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem 2rem;
+            box-shadow: 0 6px 12px rgba(0,30,30,0.04);
+            transition: box-shadow 0.2s;
+            border: 1px solid #e3f0f0;
+        }
+        .card:hover {
+            box-shadow: 0 12px 24px rgba(20, 68, 68, 0.08);
+            border-color: #bcdada;
+        }
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #115252;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .card h2::before {
+            content: "▍";
+            color: #2d8f8f;
+            font-weight: 300;
+            font-size: 1.7rem;
+            line-height: 0;
+        }
+        .card p {
+            margin-bottom: 0.85rem;
+            color: #244242;
+        }
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+        .badge-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-top: 0.8rem;
+            list-style: none;
+        }
+        .badge-list li {
+            background: #e7f3f3;
+            padding: 0.2rem 1rem 0.2rem 0.9rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: #0d4848;
+            border-left: 3px solid #3b9e9e;
+        }
+
+        /* 提示/摘录卡片 — 类似FAQ摘要 */
+        .tip-card {
+            background: #e2f0f0;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            margin: 1.8rem 0 1rem;
+            border: 1px solid #bcd4d4;
+        }
+        .tip-card .tip-title {
+            font-weight: 600;
+            color: #0b4a4a;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+        .tip-card p {
+            color: #1b4f4f;
+            font-size: 0.98rem;
+        }
+
+        /* 页尾访问提示 */
+        .footer-access {
+            margin-top: 3rem;
+            padding: 1.6rem 0;
+            text-align: center;
+            border-top: 1px solid #d2e6e6;
+            color: #2a5a5a;
+            font-size: 0.95rem;
+            background: #f2fafc;
+            border-radius: 48px 48px 0 0;
+        }
+        .footer-access a {
+            color: #0d6868;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #4ea8a8;
+            padding-bottom: 1px;
+            transition: border 0.2s, color 0.2s;
+        }
+        .footer-access a:hover {
+            color: #0b5353;
+            border-bottom-color: #175757;
+        }
+        .footer-note {
+            font-size: 0.8rem;
+            color: #508080;
+            margin-top: 0.5rem;
+        }
+
+        /* 移动端优化 */
+        @media (max-width: 640px) {
+            body { padding: 0 0.9rem; }
+            .hero { padding: 1.8rem 1.2rem 1.5rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero .hero-desc { font-size: 1rem; max-width: 100%; }
+            .card { padding: 1.5rem 1.2rem; border-radius: 20px; }
+            .card h2 { font-size: 1.3rem; }
+            .tip-card { padding: 1.2rem; }
+            .footer-access { padding: 1.2rem 0; }
+        }
+        @media (max-width: 400px) {
+            .hero h1 { font-size: 1.7rem; }
+            .badge-list li { font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 首页横幅 + 背景说明 -->
+    <header class="hero">
+        <h1>爱游戏 · 简明指南</h1>
+        <span class="sub-label">轻量 · 实用 · 访问提醒</span>
+        <div class="hero-desc">
+            日常进入数字娱乐世界，有一处简洁可靠的起点。<br>
+            以下内容将帮助你快速了解、顺利访问并保持适度节奏。
+        </div>
+    </header>
+
+    <!-- 三段自然介绍 + 网格卡片 -->
+    <div class="card-grid">
+
+        <section class="card">
+            <h2>出发点与背景</h2>
+            <p>「<strong>爱游戏</strong>」并不是一个复杂的平台，它更接近一个干净的中转指引——专为想要直接体验游戏内容的用户准备。整个页面围绕游戏信息聚合、分类提示和轻量化访问设计，没有多余干扰。</p>
+            <p>无论你是在 PC 还是手机端打开，都能快速找到自己感兴趣的方向。站内内容以实用型指南和资源整理为主，适合希望节省挑选时间的玩家。</p>
+            <ul class="badge-list">
+                <li>信息卡片式布局</li>
+                <li>无强制注册门槛</li>
+                <li>分类浏览为主</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>常见场景与特点</h2>
+            <p>很多朋友在找游戏攻略或版本资讯时，容易被广告或冗长文章拖慢节奏。<a href="https://www--aiyouxi.com">爱游戏</a> 在整理内容时会尽量保持段落简短，把重点直接放在前面。比如新游推荐、活动时间、配置参考这些硬需求，页面中往往单独列出。</p>
+            <p>另一个特点是多数页面内嵌了快速导航区域，方便在不同话题间跳转。如果你比较在意浏览效率，这种结构会顺手不少。</p>
+            <ul class="badge-list">
+                <li>攻略速览</li>
+                <li>版本更新摘要</li>
+                <li>配置参考框</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>访问提醒与建议</h2>
+            <p>尽管页面本身设计简洁，还是有几个小细节值得留意：</p>
+            <p>🔹 部分外部链接会跳转到合作站点，注意核对域名。不过核心内容始终以 <a href="https://www--aiyouxi.com">爱游戏</a> 自身页面为主，不必担心迷失。<br>
+            🔹 移动端下卡片会自动调整宽度，字体大小也做了适配，横屏或竖屏都能保持可读性。<br>
+            🔹 网站没有强制弹窗，也没有诱导分享，你可以放心浏览。</p>
+            <p>最后，无论你是资深玩家还是偶尔看一看，保持自己的节奏就好。游戏是放松的，访问过程也应该轻松。</p>
+        </section>
+
+    </div>
+
+    <!-- FAQ 摘要卡片 (融入问答感，非完整FAQ) -->
+    <div class="tip-card">
+        <div class="tip-title">📌 常见关注点摘要</div>
+        <p><strong>是否需要注册？</strong> 浏览所有公开页面都不需要注册或登录。<br>
+        <strong>信息更新频率？</strong> 通常随游戏版本或活动周期更新，攻略部分会标注时间。<br>
+        <strong>遇到链接失效？</strong> 绝大多数指向站内或稳定源，如遇外部变动可稍后再试。</p>
+    </div>
+
+    <!-- 页尾访问提示 (自然嵌入链接) -->
+    <footer class="footer-access">
+        <p>如果你想直接开始浏览，可以前往 <a href="https://www--aiyouxi.com">爱游戏</a> 查看最新内容。<br>
+        <span class="footer-note">保持适度 · 愉快体验</span></p>
+        <p style="margin-top: 0.6rem; font-size: 0.8rem; opacity: 0.7;">— 杂志式介绍页 · 信息仅供参考 —</p>
+    </footer>
+
+</div>
+</body>
+</html>
