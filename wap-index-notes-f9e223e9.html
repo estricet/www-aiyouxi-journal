@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>竞彩 · 简洁指引</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f8f9fa;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e2f;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .page {
+            max-width: 680px;
+            width: 100%;
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-radius: 28px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.03), 0 4px 12px rgba(0, 0, 0, 0.02);
+            transition: box-shadow 0.25s ease;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-top: 0.1rem;
+            margin-bottom: 0.5rem;
+            color: #12121c;
+        }
+
+        .opening {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #3a3a4e;
+            background: #f2f3f7;
+            display: inline-block;
+            padding: 0.2rem 1rem 0.2rem 0;
+            border-radius: 0 20px 20px 0;
+            margin: 0.4rem 0 1.4rem 0;
+            letter-spacing: 0.01em;
+        }
+
+        .opening em {
+            font-style: normal;
+            background: #e2e5ed;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            color: #252536;
+            margin: 1.8rem 0 1.6rem 0;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #eaeef2;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro-text a {
+            color: #1d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #b6c9de;
+            transition: border 0.15s;
+        }
+
+        .intro-text a:hover {
+            border-bottom: 2px solid #1d4a7a;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 1.8rem 0 2rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1.1rem;
+            font-size: 0.98rem;
+            color: #2b2b3e;
+        }
+
+        .feature-list li::before {
+            content: "·";
+            font-weight: 600;
+            font-size: 1.6rem;
+            line-height: 1;
+            color: #476b8e;
+            flex-shrink: 0;
+            margin-top: -0.1rem;
+        }
+
+        .scene-note {
+            background: #f4f6fa;
+            padding: 1.5rem 1.4rem;
+            border-radius: 20px;
+            margin: 1.8rem 0;
+            border: 1px solid #e2e7ef;
+        }
+
+        .scene-note h3 {
+            font-size: 1.2rem;
+            font-weight: 520;
+            margin-bottom: 0.6rem;
+            color: #1a293a;
+        }
+
+        .scene-note p {
+            color: #313147;
+            font-size: 0.95rem;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.5rem 0;
+            padding: 0.5rem 0;
+        }
+
+        .faq-mini details {
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dashed #dce2ea;
+            padding: 0.5rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 480;
+            color: #1e2f40;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .faq-mini summary::before {
+            content: "▸";
+            margin-right: 0.6rem;
+            color: #5e7b9b;
+            font-size: 0.9rem;
+            transition: transform 0.15s;
+        }
+
+        .faq-mini details[open] summary::before {
+            transform: rotate(90deg);
+        }
+
+        .faq-mini details p {
+            padding: 0.3rem 0 0.6rem 1.4rem;
+            color: #2f3e52;
+            font-size: 0.92rem;
+        }
+
+        .closing {
+            border-top: 1px solid #e5eaf0;
+            padding-top: 1.6rem;
+            margin-top: 1.8rem;
+            font-size: 0.95rem;
+            color: #3c4053;
+            text-align: left;
+        }
+
+        .closing a {
+            color: #1d4a7a;
+            text-decoration: none;
+            border-bottom: 1px solid #b6c9de;
+            font-weight: 480;
+        }
+
+        .closing a:hover {
+            border-bottom: 2px solid #1d4a7a;
+        }
+
+        @media (max-width: 500px) {
+            body { padding: 1.2rem 0.8rem; }
+            .page { padding: 1.8rem 1.2rem; border-radius: 20px; }
+            h1 { font-size: 1.9rem; }
+            .opening { font-size: 1rem; }
+        }
+
+        @media (max-width: 380px) {
+            .page { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <h1>一目了然的工具页</h1>
+
+    <div class="opening">
+        <em>打开它之前，你已知道要做什么。</em>
+    </div>
+
+    <div class="intro-text">
+        <p>不是每个站点都需要复杂的开场。很多时候你只想快速确认：这个页面能不能帮我找到想要的信息？<br>
+        <strong>竞彩网</strong> —— 就是这样的存在。它把赛事数据与实用功能整合在一起，供你随时参考。无论你是想浏览即时比分，还是查看赛程变化，这里都能给你一个清爽的起点。</p>
+
+        <p>不少用户第一次打开 <a href="https://wap-index-jingcai.com">竞彩网</a> 时，会被它的直接打动：没有花哨的动画，没有冗长的引导。首页直接陈列核心模块，让选择变得更简单。你只需要点开熟悉的板块，剩下的交给页面自己展开。</p>
+    </div>
+
+    <ul class="feature-list">
+        <li>聚焦赛事基本面，减少无关干扰，一眼定位关注联赛</li>
+        <li>数据更新节奏贴近比赛进程，减少反复刷新的焦虑感</li>
+        <li>结构分区克制，不堆砌入口，保留专注浏览的空间</li>
+        <li>移动端优先设计，单手操作也能顺畅滑动、点选</li>
+    </ul>
+
+    <div class="scene-note">
+        <h3>一个典型的使用片段</h3>
+        <p>周末下午，你想快速扫一眼今晚有哪些重点比赛。打开 <strong>竞彩网</strong>，列表按时间排列，重点场次用颜色标记。你不需要注册或登录，直接就能看到对阵和时间。如果某场感兴趣，点进去进一步查看详情。整个过程可能不到三十秒。这大概就是工具该有的样子：安静地待在后台，你需要时才出现。</p>
+    </div>
+
+    <div class="faq-mini">
+        <details>
+            <summary>竞彩网需要注册才能浏览吗？</summary>
+            <p>不需要。网站结构以公开信息展示为主，大多数内容无需登录即可阅读。部分深度功能或设置可能涉及个人偏好，但基础浏览完全开放。</p>
+        </details>
+        <details>
+            <summary>页面上的数据多久更新一次？</summary>
+            <p>数据刷新频率与赛事进程同步，常规赛段每分钟都会自动拉取最新变化。如果遇到赛程密集的周末，更新间隔会进一步缩短。</p>
+        </details>
+        <details>
+            <summary>手机浏览器打开显示正常吗？</summary>
+            <p>页面已针对主流移动端屏幕做适配，无论竖屏还是横屏，内容排版都会自动调整。建议保持浏览器为最新版本，以获得最佳体验。</p>
+        </details>
+    </div>
+
+    <div class="closing">
+        <p>如果你正在寻找一个简洁、克制的赛事参考工具，不妨把 <a href="https://wap-index-jingcai.com">竞彩网</a> 加入书签。它不会打扰你，但每次打开，都能给你清晰的数据脉络。试试看，也许它会成为你浏览习惯里安静的那一角。</p>
+    </div>
+
+</div>
+</body>
+</html>
